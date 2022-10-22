@@ -14,12 +14,13 @@
 
 
 
-Cypress.Commands.add('login', (username: string, password: string) => {
-    cy.session([username, password], () => {
+Cypress.Commands.add('login', (username, password) => {
+    cy.session(username, () => {
         cy.visit('https://cas.ctco.lv/')
         cy.get('#username').type(username)
         cy.get('#password').type(password, {log: false})
         cy.get('.btn-submit').click()
+        cy.get('.titleLabel').contains(username)
     })
 })
 

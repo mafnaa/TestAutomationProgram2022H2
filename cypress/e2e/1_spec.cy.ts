@@ -22,6 +22,4 @@ describe('our first test', () => {
         cy.getIframeBody().find('.ipt_uif_question_content textarea').type('Test')
     })
 
-
-
 })
